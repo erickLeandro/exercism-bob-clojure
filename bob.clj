@@ -1,6 +1,6 @@
 (ns bob)
 
-(defn check-uppercase [phrase] 
+(defn responds-to-shouts [phrase] 
 	(if count (< 1
 			(empty? 
 				(filter #(Character/isUpperCase %) 
@@ -9,18 +9,18 @@
 		true
 ))
 
-(defn check-empty [phrase]
+(defn responds-to-silence [phrase]
 	(empty? (clojure.string/trim phrase))
 )
 
-(defn check-is-question [phrase]
+(defn responds-to-questions [phrase]
 	(if (= \? (last phrase)) true false)
 )
 
 (defn response-for [phrase] 
 	(cond 
-		(check-empty phrase) "Fine. Be that way!"
-		(check-is-question phrase) "Sure."
-		(check-uppercase phrase) "Whoa, chill out!"
+		(responds-to-silence phrase) "Fine. Be that way!"
+		(responds-to-questions phrase) "Sure."
+		(responds-to-shouts phrase) "Whoa, chill out!"
 		:else "Whatever."
 ))
