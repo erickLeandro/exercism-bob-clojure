@@ -1,0 +1,6 @@
+(str "ola")
+(defn test [x] (str x))
+(defn bla [x] (str x))
+(bla kkkk)
+(bla "kkkk")
+exit
